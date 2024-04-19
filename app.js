@@ -31,5 +31,4 @@ mongoose
 app.use(express.json());
 
 app.use("/products", productRoutes);
-
 app.use("/payments", paymentRoutes);
