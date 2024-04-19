@@ -1,0 +1,12 @@
+version: '1.0'
+services:
+  mongodb:
+    image: mongo
+    restart: always
+    container_name: ecommerce_dbadmin
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: ecom_dbadmin
+      MONGO_INITDB_ROOT_PASSWORD: 6410742354
+    ports:
+      - "27018:27017"
+  
