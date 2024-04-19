@@ -7,6 +7,7 @@ dotenv.config();
 const productRoutes = require("./routes/productRoutes");
 const paymentRoutes = require("./routes/paymentRoutes");
 
+
 const app = express();
 
 const MONGODB_URI = process.env.MONGODB_URI;
@@ -30,4 +31,5 @@ mongoose
 app.use(express.json());
 
 app.use("/products", productRoutes);
+
 app.use("/payments", paymentRoutes);
