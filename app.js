@@ -6,6 +6,7 @@ dotenv.config();
 
 const productRoutes = require("./routes/productRoutes");
 const paymentRoutes = require("./routes/paymentRoutes");
+const cartRoutes = require("./routes/cartRoutes");
 
 
 const app = express();
@@ -32,3 +33,4 @@ app.use(express.json());
 
 app.use("/products", productRoutes);
 app.use("/payments", paymentRoutes);
+app.use('/cart',cartRoutes);
