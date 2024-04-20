@@ -38,3 +38,16 @@ exports.createProduct = async (req, res) => {
     res.status(400).json({ message: err.message });
   }
 };
+
+exports.getProductsByCategory = async (req, res) => {
+  const { category } = req.params;
+  try {
+    const products = await Product.find({ category: category });
+    console.log(category)
+    res.json(products);
+  } catch (err) {
+    res.status(500).json({ message: err.message });
+  }
+};
+
+
