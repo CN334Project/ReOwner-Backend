@@ -71,3 +71,26 @@ exports.updateCartById = async (req, res) => {
     res.status(500).json({ message: err.message });
   }
 };
+
+
+exports.getProductCategories = async (req, res) => {
+  try {
+    const cartItems = await CartItem.find().populate("product");
+    const categoryMap = {
+      "furniture": 0,
+      "decor": 0,
+      "lighting": 0,
+      "clothing": 0
+    };
+
+    cartItems.forEach((cart) => {
+      cart.product.forEach((product) => {
+        categoryMap[product.category] = categoryMap[product.category] + 1;
+      })
+    })
+
+    res.status(201).json(categoryMap);
+  } catch (err) {
+    console.error(err);
+  }
+}
