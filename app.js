@@ -9,7 +9,8 @@ dotenv.config();
 const productRoutes = require("./routes/productRoutes");
 const paymentRoutes = require("./routes/paymentRoutes");
 const cartRoutes = require("./routes/cartRoutes");
-const soundRoutes = require("./routes/soundRoutes")
+const soundRoutes = require("./routes/soundRoutes");
+const dashboardRoutes = require("./routes/dashboardRoutes");
 
 const app = express();
 app.use(cors());
@@ -36,11 +37,12 @@ app.use(express.json());
 
 app.use("/products", productRoutes);
 app.use("/payments", paymentRoutes);
-app.use('/cart',cartRoutes);
-app.use("/sound",soundRoutes);
+app.use("/cart", cartRoutes);
+app.use("/sound", soundRoutes);
+app.use("/dashboard", dashboardRoutes);
 
 // Serve static files (images)
-app.use('/sound', express.static(path.join(__dirname, 'sound')));
-app.use('/images', express.static(path.join(__dirname, 'images')));
+app.use("/sound", express.static(path.join(__dirname, "sound")));
+app.use("/images", express.static(path.join(__dirname, "images")));
 
 module.exports = app;
